@@ -5,13 +5,13 @@ const exibeFrase= (quote)=> {
     autor.innerHTML= quote.quoteAuthor;
 };
 
-const urlFrasealeatoria= ()=> {
+const urlFraseAleatoria= ()=> {
     const urlFrase= 'https://quote-garden.herokuapp.com/api/v2/quotes/random';
     return urlFrase;
 };
 
-const iniciar = async () => {
-    const url= urlFrasealeatoria();
+const iniciar = async ()=> {
+    const url= urlFraseAleatoria();
     const response = await fetch(url);
     const result = await response.json();
     exibeFrase(result);
