@@ -1,8 +1,8 @@
-const exibeFrase= (quote)=> {
+const exibeFrase= (quote=result)=> {
     const texto= document.getElementById("texto");
-    texto.innerHTML= quote.quoteText;
+    texto.innerHTML= `"${quote.quoteText}"`;
     const autor= document.getElementById("autor");
-    autor.innerHTML= quote.quoteAuthor;
+    autor.innerHTML= `#${quote.quoteAuthor}#`;
 };
 
 const urlFraseAleatoria= ()=> {
@@ -14,6 +14,6 @@ const iniciar = async ()=> {
     const url= urlFraseAleatoria();
     const response = await fetch(url);
     const result = await response.json();
-    exibeFrase(result);
+    exibeFrase(result.quote);
 };
 document.addEventListener('DOMContentLoaded', iniciar);
